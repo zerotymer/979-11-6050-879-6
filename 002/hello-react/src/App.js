@@ -1,7 +1,7 @@
 function App() {
-  const name = '리웩트';
+  const name = undefined;
 
-  return <div>{name === '리액트' && (<h1>리액트입니다.</h1>)}</div>;
+  return <div>{name || '리액트'}</div>;
 }
 
 export default App;
