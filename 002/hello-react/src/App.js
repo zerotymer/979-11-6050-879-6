@@ -1,7 +1,15 @@
 function App() {
-  const name = undefined;
+  const name = '리액트';
+  const style = {
+    padding: 16,
+    backgroundColor: 'black',
 
-  return <div>{name || '리액트'}</div>;
+    color: 'aqua',
+    fontSize: '48px',
+    fontWeight: 'bold'
+  }
+
+  return <div style={style}>{name}</div>;
 }
 
 export default App;
