@@ -1,7 +1,7 @@
-import React from 'react';
+import { Component } from 'react';
 import PROPTYPES from 'prop-types';
 
-class MyComponent extends React.Component {
+class MyComponent extends Component {
   
   static defaultProps = {
     name: '기본 이름'
