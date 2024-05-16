@@ -16,6 +16,10 @@ class EventPractice extends React.Component {
     alert(this.state.username + ": " + this.state.message);
     this.setState({ username: "", message: "" });
   };
+
+  handleKeyDown = (e) => {
+    if (e.key === 'Enter')  this.handleClick();
+  };
   /// endregion Event Methods
 
 
@@ -26,10 +30,12 @@ class EventPractice extends React.Component {
         <input type="text" name="username" placeholder="사용자명"
           value={ this.state.username }
           onChange={ this.handleChange }
+          onKeyDown={ this.handleKeyDown }
         />
         <input type="text" name="message" placeholder="아무거나 입력해 보세요"
           value={this.state.message}
           onChange={ this.handleChange }
+          onKeyDown={ this.handleKeyDown }
         />
         <button onClick={ this.handleClick }>확인</button>
       </div>
