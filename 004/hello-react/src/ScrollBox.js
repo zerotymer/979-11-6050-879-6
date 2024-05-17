@@ -2,6 +2,13 @@ import React, { Component } from 'react';
 
 class ScrollBox extends Component {
 
+    /// region Event Handlers
+    scrollToBottom = () => {
+        const { scrollHeight, clientHeight } = this.box;
+        this.box.scrollTop = scrollHeight - clientHeight;
+    };
+    /// endregion
+
     render() {
 
         const style = {
