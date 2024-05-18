@@ -5,8 +5,14 @@ const Info = () => {
     const [ nickname, setNickname ] = useState('');
 
     useEffect(() => {
+        console.log('effect');
         console.log(name);
-    }, [name]);
+
+        return () => {
+            console.log('cleanup');
+            console.log(name);
+        };
+    });
 
     const onChangeName = e => setName(e.target.value);
     const onChangeNickname = e => setNickname(e.target.value);
