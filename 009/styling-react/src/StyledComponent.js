@@ -29,11 +29,11 @@ const Button = styled.button`
         background: none;
         border: 2px solid white;
         color: white;
-        
-        &:hover {
-            background: white;
-            color: black;
-        }
+
+            &:hover {
+                background: white;
+                color: black;
+            }
     `};
 
     & + button {
@@ -44,7 +44,7 @@ const Button = styled.button`
 const StyledComponent = () => (
     <Box color="black">
         <Button>안녕하세요</Button>
-        <Button inverted>테두리만</Button>
+        <Button inverted={true}>테두리만</Button>
     </Box>
 );
 
