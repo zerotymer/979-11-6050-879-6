@@ -25,19 +25,19 @@ const App = () => {
 
     const onInsert = useCallback((text) => {
         const todo = { id: nextId.current, text, checked: false };
-        setTodos(todos.concat(todo));   // 기존과 병합하여 새로 생성
+        setTodos((todos) => todos.concat(todo));   // 기존과 병합하여 새로 생성
         nextId.current += 1;
-    }, [todos]);
+    }, []);
 
     const onRemove = useCallback((id) => {
-        setTodos(todos.filter(todo => todo.id !== id));
-    }, [todos]);
+        setTodos((todos) => todos.filter(todo => todo.id !== id));
+    }, []);
 
     const onToggle = useCallback((id) => {
-        setTodos(todos.map(todo => 
+        setTodos((todos) => todos.map(todo => 
             todo.id === id ? { ...todo, checked: !todo.checked } : todo
         ));
-    }, [todos]);
+    }, []);
 
     return (
         <TodoTemplate>
