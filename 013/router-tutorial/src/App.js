@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useLocation } from 'react-router-dom';
 import Home from './Home';
 import About from './About';
 import Profiles from './Profiles';
@@ -20,6 +20,12 @@ function App() {
         <Route path="/info"               element={ <About /> } />
         <Route path="/profiles/*"         element={ <Profiles /> } />
         <Route path="/history"            element={ <HistorySample /> } />
+        <Route path="*" element={ 
+          <div>
+            <h2>이 페이지는 존재하지 않습니다:</h2>
+            <p>{ useLocation().pathname }</p>
+          </div>
+        } />
       </Routes>
     </div>
   );
