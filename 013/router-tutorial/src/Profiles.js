@@ -4,7 +4,6 @@ import Profile from './Profile';
 const Profiles = () => {
 
     const activceStyle = ({ isActive }) => {
-        console.log(isActive);
         return {
             background: isActive ? 'black' : 'white',
             color: isActive ? 'white' : 'black'
