@@ -1,17 +1,25 @@
-import { Routes, Route, Link } from 'react-router-dom';
+import { Routes, Route, NavLink } from 'react-router-dom';
 import Profile from './Profile';
 
 const Profiles = () => {
+
+    const activceStyle = ({ isActive }) => {
+        console.log(isActive);
+        return {
+            background: isActive ? 'black' : 'white',
+            color: isActive ? 'white' : 'black'
+        };
+    };
 
     return (
         <div>
             <h3>사용자 목록:</h3>
             <ul>
                 <li>
-                    <Link to="/profiles/velopert">velopert</Link>
+                    <NavLink style={ activceStyle } to="/profiles/velopert" end >velopert</NavLink>
                 </li>
                 <li>
-                    <Link to="/profiles/gildong">gildong</Link>
+                    <NavLink style={ activceStyle } to="/profiles/gildong" end >gildong</NavLink>
                 </li>
             </ul>
 
