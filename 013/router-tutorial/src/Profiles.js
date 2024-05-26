@@ -1,4 +1,4 @@
-import { Routes, Route, Link, useParams, useLocation } from 'react-router-dom';
+import { Routes, Route, Link } from 'react-router-dom';
 import Profile from './Profile';
 
 const Profiles = () => {
@@ -16,7 +16,7 @@ const Profiles = () => {
             </ul>
 
             <Routes>
-                <Route path="/"             element={ <div>사용자를 선택해 주세요.</div> } />
+                <Route path="/"            element={ <div>사용자를 선택해 주세요.</div> } />
                 <Route path="/:username"   element={ <Profile /> } />
             </Routes>
 
