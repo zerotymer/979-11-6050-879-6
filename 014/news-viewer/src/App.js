@@ -1,36 +1,20 @@
-import { useState } from 'react';
-import axios from 'axios';
+import React, { useState, useCallback } from 'react';
 import NewsList from './components/NewsList';
+import Categories from './components/Categories';
 
-const API_KEY = '0c7954c1ed8d4b1cb9db421301ae381b';
-const getUrl = (category, country = 'kr', apikey = API_KEY) => {
-  let url = `https://newsapi.org/v2/top-headlines?country=${country}&apiKey=${apikey}`;
-  if (category) {
-    url += `&category=${category}`;
-  }
-  return url;
-};
+// const API_KEY = '0c7954c1ed8d4b1cb9db421301ae381b';
+
 
 const App = () => {
-  const [ data, setData ] = useState(null);
+  const [ category, setCategory ] = useState('all');
+  const onSelect = useCallback(category => setCategory(category), []);
 
-  // const onClick = () => {
-  //   axios.get(getUrl())
-  //     .then(response => {
-  //       setData(response.data);
-  //     });
-  // };
-
-  const asyncClick = async () => {
-    try {
-      const response = await axios.get(getUrl());
-      setData(response.data);
-    } catch (e) {
-      console.log(e); 
-    }
-  };
-
-  return <NewsList />;
+  return (
+    <>
+      <Categories category={ category } onSelect={ onSelect }/>
+      <NewsList category={ category }/>
+    </>
+  );
 };
 
 export default App;
