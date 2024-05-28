@@ -24,15 +24,15 @@ const sampleArticle = {
 };
 
 const API_KEY = '0c7954c1ed8d4b1cb9db421301ae381b';
-const getUrl = (country = 'kr', apikey = API_KEY, category) => {
+const getUrl = (category, country = 'kr', apikey = API_KEY) => {
   let url = `https://newsapi.org/v2/top-headlines?country=${country}&apiKey=${apikey}`;
-  if (category) {
+  if (category && category !== 'all') {
     url += `&category=${category}`;
   }
   return url;
 };
 
-const NewsList = () => {
+const NewsList = ({ category }) => {
     const [ articles, setArticles ] = useState(null);
     const [ loading, setLoading ] = useState(false);
 
@@ -41,7 +41,7 @@ const NewsList = () => {
         const fetchData = async () => {
             setLoading(true);
             try {
-                const response = await axios.get(getUrl(), );
+                const response = await axios.get(getUrl(category), );
                 setArticles(response.data.articles);
             } catch (e) {
                 console.log(e);
@@ -50,7 +50,7 @@ const NewsList = () => {
         };
 
         fetchData();
-    }, []);
+    }, [ category ]);
 
     // 대기 중일 때
     if (loading) {
@@ -65,7 +65,7 @@ const NewsList = () => {
     return (
         <NewsListBlock>
             { articles.map(article => (
-                <NewsItem key={article.url} article={article} />
+                <NewsItem key={ article.url } article={ article } />
             ))}
         </NewsListBlock>
     );

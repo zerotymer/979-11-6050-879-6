@@ -56,7 +56,7 @@ const Categories = ({ onSelect, category }) => {
             {categories.map(c => (
                 <Category key={c.name} 
                     active={ category === c.name }
-                    onSelect={ () => onSelect(c.name) } 
+                    onClick={ () => onSelect(c.name) } 
                 >
                     {c.text}
                 </Category>
