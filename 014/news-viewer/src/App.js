@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import axios from 'axios';
+import NewsList from './components/NewsList';
 
 const API_KEY = '0c7954c1ed8d4b1cb9db421301ae381b';
 const getUrl = (category, country = 'kr', apikey = API_KEY) => {
@@ -29,14 +30,7 @@ const App = () => {
     }
   };
 
-  return (
-    <div>
-      <div>
-        <button onClick={ asyncClick }>불러오기</button>
-      </div>
-      { data && <textarea rows={7} value={JSON.stringify(data, null, 2)} readOnly={true} /> }
-    </div>
-  );
+  return <NewsList />;
 };
 
 export default App;
