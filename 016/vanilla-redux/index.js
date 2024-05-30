@@ -33,3 +33,14 @@ function reducer(state = initialState, action) {
 
 /// Store
 const store = createStore(reducer);
+
+const render = () => {
+    const state = store.getState();
+
+    if (state.toggle)       divToogle.classList.add('active');
+    else                    divToogle.classList.remove('active');
+
+    counter.innerText = state.counter;
+};
+
+render();
