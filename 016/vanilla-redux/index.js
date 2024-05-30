@@ -34,6 +34,7 @@ function reducer(state = initialState, action) {
 /// Store
 const store = createStore(reducer);
 
+/// getState
 const render = () => {
     const state = store.getState();
 
@@ -44,3 +45,6 @@ const render = () => {
 };
 
 render();
+
+/// Subscribe
+store.subscribe(render);
