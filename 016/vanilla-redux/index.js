@@ -1,3 +1,5 @@
+import { createStore } from 'redux';
+
 const divToogle = document.querySelector('.toogle');
 const counter = document.querySelector('h1');
 const increment = document.querySelector('#increment');
@@ -28,3 +30,6 @@ function reducer(state = initialState, action) {
         default:                return state;
     }
 }
+
+/// Store
+const store = createStore(reducer);
