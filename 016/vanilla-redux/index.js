@@ -10,3 +10,8 @@ const DECREMENT = 'DECREMENT';
 const toggleSwitch = () => ({ type: TOGGLE_SWITCH });
 const incrementCounter = () => ({ type: INCREMENT });
 const decrementCounter = () => ({ type: DECREMENT });
+
+const initialState = {
+    toggle: false,
+    counter: 0
+};
