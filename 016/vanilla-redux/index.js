@@ -1,19 +1,19 @@
 import { createStore } from 'redux';
 
-const divToogle = document.querySelector('.toogle');
+const divToogle = document.querySelector('.toggle');
 const counter = document.querySelector('h1');
-const increment = document.querySelector('#increment');
-const decrement = document.querySelector('#decrement');
+const btnIncrement = document.querySelector('#increase');
+const btnDecrement = document.querySelector('#decrease');
 
 /// Action Types
 const TOGGLE_SWITCH = 'TOGGLE_SWITCH';
-const INCREMENT = 'INCREMENT';
-const DECREMENT = 'DECREMENT';
+const INCREASE = 'INCREASE';
+const DECREASE = 'DECREASE';
 
 /// Action Creators
 const toggleSwitch = () => ({ type: TOGGLE_SWITCH });
-const incrementCounter = () => ({ type: INCREMENT });
-const decrementCounter = () => ({ type: DECREMENT });
+const increase = (difference) => ({ type: INCREASE, difference });
+const decrease = () => ({ type: DECREASE });
 
 /// initialState
 const initialState = {
@@ -25,8 +25,8 @@ const initialState = {
 function reducer(state = initialState, action) {
     switch (action.type) {
         case TOGGLE_SWITCH:     return { ...state, toggle: !state.toggle};
-        case INCREMENT:         return { ...state, counter: state.counter + 1 };
-        case DECREMENT:         return { ...state, counter: state.counter - 1 };
+        case INCREASE:          return { ...state, counter: state.counter + action.difference };
+        case DECREASE:          return { ...state, counter: state.counter - 1 };
         default:                return state;
     }
 }
@@ -48,3 +48,8 @@ render();
 
 /// Subscribe
 store.subscribe(render);
+
+/// Dispatch
+divToogle.onclick = () => store.dispatch(toggleSwitch());
+btnIncrement.onclick = () => store.dispatch(increase(1));
+btnDecrement.onclick = () => store.dispatch(decrease());
