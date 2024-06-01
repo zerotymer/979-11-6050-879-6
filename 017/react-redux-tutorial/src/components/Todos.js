@@ -26,7 +26,13 @@ const Todos = ({ input, todos, onChangeInput, onInsert, onToggle, onRemove }) =>
                 <button type="submit">등록</button>
             </form>
             <div>
-                {todos.map(todo => (<TodoItem todo={ todo } key={ todo.id } onToggle={ onToggle } onRemove={ onRemove } />))}
+                {todos.map(todo => (
+                    <TodoItem 
+                        todo={ todo } 
+                        key={ todo.id } 
+                        onToggle={ onToggle } 
+                        onRemove={ onRemove } />)
+                )}
             </div>
         </div>
     );
