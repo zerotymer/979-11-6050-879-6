@@ -12,6 +12,15 @@ export const decrease = createAction(DECREASE);
 /// endregion
 
 
+/// region Thunk
+export const increaseAsync = () => (dispatch) => {
+    setTimeout(() => dispatch(increase()), 1000);
+};
+export const decreaseAsync = () => (dispatch) => {
+    setTimeout(() => dispatch(decrease()), 1000);
+};
+/// endregion
+
 /// region Reducer
 const initialState = 0;
 const counter = handleActions({
