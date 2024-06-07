@@ -1,23 +1,30 @@
+import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-// import notify from './notify';
 
-function App() {
 
-  const onClick = () => {
-    // notify();
-    import('./notify').then(notify => notify.default());
+class App extends React.Component {
+
+  state = { SplitMe: null };
+
+  handleClick = async () => {
+    const loadMedModule = await import('./SplitMe');
+    this.setState({ SplitMe: loadMedModule.default });
   };
 
+  render() {
+    const { SplitMe } = this.state;
 
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p onClick={ onClick }>Hello React!</p>
-      </header>
-    </div>
-  );
+    return (
+      <div className="App">
+        <header className="App-header">
+          <img src={logo} className="App-logo" alt="logo" />
+          <p onClick={ this.handleClick }>Hello React!</p>
+          { SplitMe && <SplitMe /> }
+        </header>
+      </div>
+    );
+  }
 }
 
 export default App;
