@@ -1,5 +1,5 @@
 const SplitMe = () => {
-    return <div>SplitMe</div>;
+    return <div>SplitMe!</div>;
 };
 
 export default SplitMe;
