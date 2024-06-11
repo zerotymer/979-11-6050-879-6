@@ -69,6 +69,8 @@ module.exports = {
   appWebpackCache: resolveApp('node_modules/.cache'),
   appTsBuildInfoFile: resolveApp('node_modules/.cache/tsconfig.tsbuildinfo'),
   swSrc: resolveModule(resolveApp, 'src/service-worker'),
+  ssrIndexJs: resolveApp('src/index.server.js'), // SSR entry
+  ssrBuild: resolveApp('dist'), // Build directory for SSR
   publicUrlOrPath,
 };
 
